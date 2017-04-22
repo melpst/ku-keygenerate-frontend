@@ -17,10 +17,6 @@ var app = new Vue({
     redirectLabel: 'Redirect to Assessment'
   },
   methods:{
-  	changeSteps: function(e){
-  		this.loginPart = false
-  		this.showSubjectsPart = true
-  	},
     login: function(e){
       axios.post('http://localhost:3000/login',{
         username: this.username,

@@ -40,14 +40,17 @@
 					
 					<div v-show="showSubjectsPart">
 				 		<div class="welcomeText">Welcome, {{username}}</div>
-				 		<div class="col-md-6 public">
-				 			<button type="button" id="publicButton" class="btn btn-primary">{{publicLabel}}</button>
-				 		</div>
- 						<div class="col-md-6 private">
- 							<button type="button" id="privateButton" class="btn btn-primary">{{privateLabel}}</button>
- 						</div>
- 						<div class="redirect">
- 							<button type="button" class="btn btn-success">{{redirectLabel}}</button>
+				 		<div class="subjectsTable">
+	 						<table>
+	 							<tr>
+									<th>{{subjectIdLabel}}</th>
+								</tr>
+	 							<tr v-for="subject in subjects">
+	 								<td>
+	 									<a v-on:click="getsub(subject.subjectId)">{{subject.subjectId}}</a>
+	 								</td>
+	 							</tr>
+	 						</table>
  						</div>
  						<div class="howto">How to</div>
 				 	</div>

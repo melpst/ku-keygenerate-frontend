@@ -10,16 +10,29 @@ var app = new Vue({
     termLabel: 'ข้อตกลงการใช้งาน',
     username: '',
     password: '',
-    login: true,
-    getKey: false,
+    loginPart: true,
+    showSubjectsPart: false,
     publicLabel: 'Download Public Key',
     privateLabel: 'Download Private Key',
     redirectLabel: 'Redirect to Assessment'
   },
   methods:{
   	changeSteps: function(e){
-  		this.login = false
-  		this.getKey = true
-  	}
+  		this.loginPart = false
+  		this.showSubjectsPart = true
+  	},
+    login: function(e){
+      axios.post('http://localhost:3000/login',{
+        username: this.username,
+        password: this.password
+      })
+      .then((response) => {
+          this.loginPart = false
+          this.showSubjectsPart = true
+      })
+      .catch((error) => {
+        alert('wrong username or password')
+      })
+    }
   }
 })

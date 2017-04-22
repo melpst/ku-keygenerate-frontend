@@ -14,7 +14,14 @@ var app = new Vue({
     showSubjectsPart: false,
     publicLabel: 'Download Public Key',
     privateLabel: 'Download Private Key',
-    redirectLabel: 'Redirect to Assessment'
+    redirectLabel: 'Redirect to Assessment',
+    subjectIdLabel: 'รหัสวิชา',
+    assessLink: 'http://localhost:3000/subjects/',
+    subjects: [
+      {subjectId: '01204499'},
+      {subjectId: '01204495'},
+      {subjectId: '01204427'}
+    ]
   },
   methods:{
     login: function(e){
@@ -23,11 +30,22 @@ var app = new Vue({
         password: this.password
       })
       .then((response) => {
+          console.log('response.data:', response.data)
+          const { data } = response
+          sessionStorage._id = data._id
           this.loginPart = false
           this.showSubjectsPart = true
       })
       .catch((error) => {
         alert('wrong username or password')
+      })
+    },
+    getsub: function(subjectId) {
+      axios.get('http://localhost:3000/subjects/'+subjectId, {
+        headers: { _id: sessionStorage._id }
+      })
+      .then((response)=> {
+        console.log('response.data:', response.data)
       })
     }
   }

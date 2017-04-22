@@ -1,0 +1,48 @@
+#app {
+	text-align: center;
+}
+
+.webName {
+	margin: 20px 0;
+	font-weight: bold;
+	font-size: 2rem;
+}
+
+.public{
+	text-align: right;
+	padding-right: 7px;
+}
+
+.private{
+	text-align: left;
+	padding-left: 7px;
+}
+
+.loginForm {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.term {
+	margin-bottom: 12px;
+}
+
+.welcomeText {
+	font-size: 2rem;
+	margin-bottom: 15px;
+}
+
+#publicButton, #privateButton {
+	margin-bottom: 15px;
+}
+
+.redirect {
+	margin-bottom: 24px;
+}
+
+.howto {
+	font-size: 2rem;
+	font-weight: bold;
+	color: #444;
+}

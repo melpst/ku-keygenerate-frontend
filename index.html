@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<title>KU keygen</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=480, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,target-densitydpi=device-dpi, user-scalable=no" />
+		
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="./css/styles.css">
+	</head>
+
+	<body>
+		<div class="container" id="app">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="logo"><img :src="logo"></div> 
+					<div class="webName">{{webName}}</div> 
+					
+					<div v-show="login" class="loginForm">
+						<form class="form-horizontal" v-on:submit.prevent="changeSteps">
+						  <div class="form-group">
+						    <label class="col-sm-2 control-label">{{userLabel}}</label>
+						    <div class="col-sm-10">
+						      <input type="text" v-model="username" class="form-control" v-bind:placeholder="userLabel">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label class="col-sm-2 control-label">{{passwordLabel}}</label>
+						    <div class="col-sm-10">
+						      <input type="password" v-model="password" class="form-control" v-bind:placeholder="passwordLabel">
+						    </div>
+						  </div>
+						  <div class="term">
+						  	<input type="checkbox"> ยอมรับ{{termLabel}}
+						  </div>
+						  <button type="submit" class="btn btn-primary">{{loginLabel}}</button>
+					  </form>
+				  </div>
+					
+					<div v-show="getKey">
+				 		<div class="welcomeText">Welcome, {{username}}</div>
+				 		<div class="col-md-6 public">
+				 			<button type="button" id="publicButton" class="btn btn-primary">{{publicLabel}}</button>
+				 		</div>
+ 						<div class="col-md-6 private">
+ 							<button type="button" id="privateButton" class="btn btn-primary">{{privateLabel}}</button>
+ 						</div>
+ 						<div class="redirect">
+ 							<button type="button" class="btn btn-success">{{redirectLabel}}</button>
+ 						</div>
+ 						<div class="howto">How to</div>
+				 	</div>
+
+				</div>
+				<!-- <div class="col-xs-6">
+					asdf
+				</div> -->
+			</div>
+		</div>
+
+		<script src="./js/main.js"></script>
+	</body>
+</html>

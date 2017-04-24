@@ -16,11 +16,33 @@ var app = new Vue({
     privateLabel: 'Download Private Key',
     redirectLabel: 'Redirect to Assessment',
     subjectIdLabel: 'รหัสวิชา',
+    orderLabel: 'ลำดับที่',
+    subjectNameLabel: 'ชื่อวิชา',
+    lectureSecIdLabel: 'หมู่บรรยาย',
+    labSecIdLabel: 'หมู่ปฏิบัติ',
     assessLink: 'http://localhost:3000/subjects/',
     subjects: [
-      {subjectId: '01204499'},
-      {subjectId: '01204495'},
-      {subjectId: '01204427'}
+      {
+        id: '1',
+        subjectId: '01204352',
+        lectureSecId: '1',
+        labSecId: '0',
+        name: 'Laws & Ethics in Information Technology'
+      },
+      {
+        id: '2',
+        subjectId: '01204427',
+        lectureSecId: '1',
+        labSecId: '0',
+        name: 'Computer System & Network Security'
+      },
+      {
+        id: '3',
+        subjectId: '01204499',
+        lectureSecId: '0',
+        labSecId: '11',
+        name: 'Computer Engineering Project'
+      }
     ]
   },
   methods:{

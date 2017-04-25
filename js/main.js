@@ -64,10 +64,16 @@ var app = new Vue({
     },
     getsub: function(subjectId) {
       axios.get('http://localhost:3000/subjects/'+subjectId, {
-        headers: { _id: sessionStorage._id }
+        headers: {
+          _id: sessionStorage._id,
+          state: false
+        }
       })
       .then((response)=> {
         console.log('response.data:', response.data)
+        if(response.data.redirect){
+          location.href = 'http://localhost:5001'
+        }
       })
     }
   }

@@ -25,10 +25,24 @@
 
 .subjectsTable {
 	text-align: center;
+	margin: 0 auto;
 }
 
-.howto {
-	font-size: 2rem;
-	font-weight: bold;
-	color: #444;
+.subjectsTable th {
+	text-align: center;
+}
+
+.subjectsTable .name {
+	text-align: left;
+}
+
+.subjectsTable .subjectId-head,
+.subjectsTable .lecture-head,
+.subjectsTable .lab-head,
+.subjectsTable .assessLink-head {
+	width: 150px;
+}
+
+.subjects {
+	margin-top: 24px;
 }

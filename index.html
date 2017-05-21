@@ -40,27 +40,26 @@
 					
 					<div v-show="showSubjectsPart">
 				 		<div class="welcomeText">Welcome, {{username}}</div>
-				 		<div class="subjectsTable">
-	 						<table>
+				 		<div class='subjects'>
+	 						<table class="subjectsTable">
 	 							<tr>
-	 								<th>{{orderLabel}}</th>
-									<th>{{subjectIdLabel}}</th>
+	 								<th >{{orderLabel}}</th>
+									<th class="subjectId-head">{{subjectIdLabel}}</th>
 									<th>{{subjectNameLabel}}</th>
-									<th>{{lectureSecIdLabel}}</th>
+									<th class="lecture-head">{{lectureSecIdLabel}}</th class="lab-head">
 									<th>{{labSecIdLabel}}</th>
-									<th></th>
+									<th class="assessLink-head"></th>
 								</tr>
 	 							<tr v-for="subject in subjects">
 	 								<td>{{subject.id}}</td>
 	 								<td>{{subject.subjectId}}</td>
-	 								<td>{{subject.name}}</td>
+	 								<td class="name">{{subject.name}}</td>
 	 								<td>{{subject.lectureSecId}}</td>
 	 								<td>{{subject.labSecId}}</td>
-	 								<td><a v-on:click="getsub(subject.subjectId)">ประเมิน</a></td>
+	 								<td><a v-on:click="getsub(subject)">ประเมิน</a></td>
 	 							</tr>
 	 						</table>
  						</div>
- 						<div class="howto">How to</div>
 				 	</div>
 
 				</div>

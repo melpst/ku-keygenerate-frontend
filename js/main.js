@@ -8,10 +8,10 @@ var app = new Vue({
   	loginLabel: 'Login',
     message: 'Hello Vue!',
     termLabel: 'ข้อตกลงการใช้งาน',
-    username: '',
+    username: 'b5610503841',
     password: '',
-    loginPart: true,
-    showSubjectsPart: false,
+    loginPart: false,
+    showSubjectsPart: true,
     publicLabel: 'Download Public Key',
     privateLabel: 'Download Private Key',
     redirectLabel: 'Redirect to Assessment',
@@ -20,7 +20,8 @@ var app = new Vue({
     subjectNameLabel: 'ชื่อวิชา',
     lectureSecIdLabel: 'หมู่บรรยาย',
     labSecIdLabel: 'หมู่ปฏิบัติ',
-    assessLink: 'http://localhost:3000/subjects/',
+    keygenIP : 'http://158.108.34.51:3000',
+    assessIP : 'http://158.108.34.33',
     subjects: [
       {
         id: '1',
@@ -47,7 +48,7 @@ var app = new Vue({
   },
   methods:{
     login: function(e){
-      axios.post('http://localhost:3000/login',{
+      axios.post(keygenIP+'/login',{
         username: this.username,
         password: this.password
       })
@@ -62,8 +63,9 @@ var app = new Vue({
         alert('wrong username or password')
       })
     },
-    getsub: function(subjectId) {
-      axios.get('http://localhost:3000/subjects/'+subjectId, {
+    getsub: function(subject) {
+      const { subjectId, lectureSecId, labSecId, name } = subject
+      axios.get(keygenIP+'/subjects/'+subjectId, {
         headers: {
           _id: sessionStorage._id,
           state: false
@@ -72,7 +74,14 @@ var app = new Vue({
       .then((response)=> {
         console.log('response.data:', response.data)
         if(response.data.redirect){
-          location.href = 'http://localhost:5001'
+          let newHref = ''
+          if(lectureSecId!=0){
+            newHref = assessIP+'?subjectId=${subjectId}&secId=${lectureSecId}&name=${encodeURIComponent(name)}`
+          }
+          else{
+            newHref = assessIP+'?subjectId=${subjectId}&secId=${labSecId}&name=${encodeURIComponent(name)}`
+          }
+          location.href = encodeURI(newHref)
         }
       })
     }

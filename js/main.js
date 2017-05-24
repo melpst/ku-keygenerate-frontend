@@ -8,10 +8,10 @@ var app = new Vue({
   	loginLabel: 'Login',
     message: 'Hello Vue!',
     termLabel: 'ข้อตกลงการใช้งาน',
-    username: 'b5610503841',
+    username: '',
     password: '',
-    loginPart: false,
-    showSubjectsPart: true,
+    loginPart: true,
+    showSubjectsPart: false,
     publicLabel: 'Download Public Key',
     privateLabel: 'Download Private Key',
     redirectLabel: 'Redirect to Assessment',
@@ -76,10 +76,10 @@ var app = new Vue({
         if(response.data.redirect){
           let newHref = ''
           if(lectureSecId!=0){
-            newHref = assessIP+'?subjectId=${subjectId}&secId=${lectureSecId}&name=${encodeURIComponent(name)}`
+            newHref = assessIP+`?subjectId=${subjectId}&secId=${lectureSecId}&name=${encodeURIComponent(name)}`
           }
           else{
-            newHref = assessIP+'?subjectId=${subjectId}&secId=${labSecId}&name=${encodeURIComponent(name)}`
+            newHref = assessIP+`?subjectId=${subjectId}&secId=${labSecId}&name=${encodeURIComponent(name)}`
           }
           location.href = encodeURI(newHref)
         }

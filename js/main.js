@@ -48,7 +48,7 @@ var app = new Vue({
   },
   methods:{
     login: function(e){
-      axios.post(keygenIP+'/login',{
+      axios.post(this.keygenIP+'/login',{
         username: this.username,
         password: this.password
       })
@@ -65,7 +65,7 @@ var app = new Vue({
     },
     getsub: function(subject) {
       const { subjectId, lectureSecId, labSecId, name } = subject
-      axios.get(keygenIP+'/subjects/'+subjectId, {
+      axios.get(this.keygenIP+'/subjects/'+subjectId, {
         headers: {
           _id: sessionStorage._id,
           state: false
@@ -76,10 +76,10 @@ var app = new Vue({
         if(response.data.redirect){
           let newHref = ''
           if(lectureSecId!=0){
-            newHref = assessIP+`?subjectId=${subjectId}&secId=${lectureSecId}&name=${encodeURIComponent(name)}`
+            newHref = this.assessIP+`?subjectId=${subjectId}&secId=${lectureSecId}&name=${encodeURIComponent(name)}`
           }
           else{
-            newHref = assessIP+`?subjectId=${subjectId}&secId=${labSecId}&name=${encodeURIComponent(name)}`
+            newHref = this.assessIP+`?subjectId=${subjectId}&secId=${labSecId}&name=${encodeURIComponent(name)}`
           }
           location.href = encodeURI(newHref)
         }

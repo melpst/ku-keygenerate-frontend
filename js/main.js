@@ -21,7 +21,7 @@ var app = new Vue({
     lectureSecIdLabel: 'หมู่บรรยาย',
     labSecIdLabel: 'หมู่ปฏิบัติ',
     keygenIP : 'http://158.108.34.51:3000',
-    assessIP : 'http://158.108.34.33',
+    assessIP : 'http://158.108.34.33:8080',
     subjects: [
       {
         id: '1',
